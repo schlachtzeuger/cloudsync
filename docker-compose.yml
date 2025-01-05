@@ -1,0 +1,17 @@
+version: "2"
+services:
+  cloudsync:
+    image: mxla/cloudsync:1.0.0
+    user: "1001"
+    container_name: cloudsync
+    restart: always
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MXLA_USERS="Harald"
+      - MXLA_BASE_DIR="/nextcloud/{user}/files/Photos/Camera/"
+      - MXLA_TARGET_DIR="secret:/{user}/fotos/Camera/"
+    volumes:
+      - /path/to/your/nextcloud/data/:/nextcloud/
+      - /path/to/your/rclone.conf:/.rclone.conf
+
+        
